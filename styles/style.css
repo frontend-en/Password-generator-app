@@ -1,0 +1,427 @@
+@font-face {
+  font-family: "JetBrainsMono Bold";
+  src: local("JetBrainsMono-Bold"), url("../assets/fonts/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "JetBrainsMono Bold-Italic";
+  src: local("JetBrainsMono-Bold"), url("../assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+/* https://piccalil.li/blog/a-modern-css-reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  letter-spacing: -0.05px;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  font-family: "JetBrainsMono Bold", sans-serif;
+  color: hsl(252, 11%, 91%);
+}
+
+body {
+  background-color: hsl(248, 15%, 11%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  padding-top: 4rem;
+}
+@media (min-width: 768px) {
+  .header {
+    padding-top: 8.3125rem;
+    margin-bottom: 1.9375rem;
+  }
+}
+.header__title {
+  font-size: 1rem;
+  color: hsl(251, 9%, 53%);
+}
+@media (min-width: 768px) {
+  .header__title {
+    font-size: 1.5rem;
+  }
+}
+
+.generator {
+  padding: 1rem 1rem 3.9375rem 1rem;
+  min-width: 21.4375rem;
+}
+@media (min-width: 768px) {
+  .generator {
+    min-width: 33.75rem;
+    padding: 0;
+  }
+}
+.generator__code {
+  padding: 1rem;
+  background-color: hsl(247, 11%, 15%);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.generator__code button {
+  cursor: pointer;
+  display: flex;
+  font-size: 1.125rem;
+  color: hsl(127, 100%, 82%);
+  align-items: center;
+  gap: 1rem;
+}
+.generator__code button img {
+  width: 17px;
+  height: 20px;
+}
+@media (min-width: 768px) {
+  .generator__code {
+    padding: 1.1875rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .generator__code button img {
+    width: 21px;
+    height: 24px;
+  }
+}
+.generator__card {
+  padding: 1rem;
+  background-color: hsl(247, 11%, 15%);
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .generator__card {
+    font-size: 1.125rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+}
+.generator__form {
+  margin-bottom: 2rem;
+}
+.generator__character {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .generator__character {
+    padding-bottom: 1rem;
+  }
+}
+.generator__output {
+  font-size: 1.5rem;
+  color: hsl(127, 100%, 82%);
+}
+.generator__checkboxes {
+  margin-bottom: 2rem;
+}
+.generator__lists {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .generator__lists {
+    gap: 1.25rem;
+  }
+}
+.generator__list {
+  display: flex;
+  align-items: center;
+}
+.generator__list > label {
+  padding-left: 1.25rem;
+}
+.generator__strength {
+  background-color: hsl(248, 15%, 11%);
+  padding: 0.875rem 1rem;
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .generator__strength {
+    padding: 1.3125rem 2rem;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+}
+.generator__strength-item {
+  text-transform: uppercase;
+  color: hsl(251, 9%, 53%);
+}
+.generator__strength-val {
+  margin-left: auto;
+  margin-right: 1rem;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .generator__strength-val {
+    font-size: 1.5rem;
+  }
+}
+.generator__box-group {
+  display: flex;
+}
+.generator__box-group > span {
+  border: 2px solid hsl(252, 11%, 91%);
+  min-width: 10px;
+  height: 28px;
+}
+.generator__box-group > span:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.generator__button {
+  background-color: hsl(127, 100%, 82%);
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+.generator__button > img {
+  width: 12px;
+  height: 12px;
+  margin-left: 1rem;
+}
+
+.bg-red {
+  background-color: hsl(0, 91%, 63%);
+}
+
+.bg-orange {
+  background-color: hsl(13, 95%, 66%);
+}
+
+.bg-yellow {
+  background-color: hsl(42, 91%, 68%);
+}
+
+.bg-green {
+  background-color: hsl(127, 100%, 82%);
+}
+
+.hidden {
+  display: none;
+}
+
+input[type=checkbox] {
+  appearance: none;
+  background-color: hsl(247, 11%, 15%);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid hsl(252, 11%, 91%);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type=checkbox]::before {
+  content: url("../assets/images/icon-check.svg");
+  width: 0.9375rem;
+  height: 0.8125rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=checkbox]:checked {
+  background-color: hsl(127, 100%, 82%);
+  border: 0.15em solid hsl(127, 100%, 82%);
+}
+
+input[type=checkbox]:checked::before {
+  transform: scale(1);
+}
+
+input[type=range] {
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+input[type=range] {
+  color: hsl(127, 100%, 82%);
+  --thumb-height: 1.125em;
+  --track-height: 0.25em;
+  --track-color: rgba(0, 0, 0, 0.2);
+  --brightness-hover: 180%;
+  --brightness-down: 80%;
+  --clip-edges: 0.125em;
+}
+
+input[type=range] {
+  position: relative;
+  background: hsl(247, 11%, 15%);
+  overflow: hidden;
+}
+
+input[type=range],
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  transition: all ease 100ms;
+  height: var(--thumb-height);
+}
+
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::-webkit-slider-thumb {
+  position: relative;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  --thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
+  --clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
+  --clip-bottom: calc(var(--thumb-height) - var(--clip-top));
+  --clip-further: calc(100% + 1px);
+  --box-fill: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0
+    100vmax currentColor;
+  width: var(--thumb-width, var(--thumb-height));
+  background: linear-gradient(hsl(252, 11%, 91%) 0 0) scroll no-repeat left center/50% calc(var(--track-height) + 1px);
+  box-shadow: var(--box-fill);
+  border-radius: var(--thumb-width, var(--thumb-height));
+  filter: brightness(100%);
+  clip-path: polygon(100% -1px, var(--clip-edges) -1px, 0 var(--clip-top), -100vmax var(--clip-top), -100vmax var(--clip-bottom), 0 var(--clip-bottom), var(--clip-edges) 100%, var(--clip-further) var(--clip-further));
+  background-color: hsl(252, 11%, 91%);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center/100% calc(var(--track-height) + 1px);
+}
+
+input[type=range],
+input[type=range]::-moz-range-track,
+input[type=range]::-moz-range-thumb {
+  appearance: none;
+  transition: all ease 100ms;
+  height: var(--thumb-height);
+}
+
+input[type=range]::-moz-range-thumb {
+  background: currentColor;
+  border: 0;
+  width: var(--thumb-width, var(--thumb-height));
+  border-radius: var(--thumb-width, var(--thumb-height));
+  cursor: grab;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  background: var(--track-color);
+}
+
+input[type=range]::-moz-range-progress {
+  appearance: none;
+  background: currentColor;
+  transition-delay: 30ms;
+}
+
+input[type=range]::-moz-range-track,
+input[type=range]::-moz-range-progress {
+  height: calc(var(--track-height) + 1px);
+  border-radius: var(--track-height);
+}/*# sourceMappingURL=style.css.map */

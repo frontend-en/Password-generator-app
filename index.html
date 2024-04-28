@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/style.css">
+
+  <title>Frontend Mentor | Password generator app</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">Password Generator</h1>
+  </header>
+  <main class="generator">
+    <div class="generator__code" >
+      <div id="code"></div>
+      <button id="copy" class="generator__button-copy">
+        <span id="copied" class="hidden">COPIED</span>
+        <img src="./assets/images/icon-copy.svg" alt="copy" class="copy"></button>
+    </div>
+    <div class="generator__card">
+      <form id="form" class="generator__form" oninput="gen.value=parseInt(genRange.value)">
+        <div class="generator__character">
+          <label for="range" class="generator__lenght">Character Length</label>
+          <output id="output" role="status" for="range" class="generator__output" name="gen">10</output>
+        </div>
+        <input id="range" type="range" name="genRange" class="generator__range" min="6" max="20"/>
+      </form>
+      <div class="generator__checkboxes">
+        <ul class="generator__lists">
+          <li class="generator__list">
+            <input id="check1" type="checkbox" data-check="check1" class="generator__checkbox-item">
+            <label for="check1" class="generator__list-lable">
+              Include Uppercase Letters
+            </label>
+          </li>
+          <li class="generator__list">
+            <input id="check2" type="checkbox" data-check="check2" class="generator__checkbox-item">
+            <label for="check2" class="generator__list-lable">
+              Include Lowercase Letters
+            </label>
+          </li>
+          <li class="generator__list">
+            <input id="check3" type="checkbox" data-check="check3" class="generator__checkbox-item">
+            <label for="check3" class="generator__list-lable">
+              Include Numbers
+            </label>
+          </li>
+          <li class="generator__list">
+            <input id="check4" type="checkbox" data-check="check4" class="generator__checkbox-item" >
+            <label for="check4" class="generator__list-lable">
+              Include Symbols
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="generator__strength">
+        <div id="strenght" class="generator__strength-item">strenght</div>
+        <div id="strenght-value" class="generator__strength-val"></div>
+        <div class="generator__box-group">
+          <span data-strength1="strength1"></span>
+          <span data-strength2="strength2"></span>
+          <span data-strength3="strength3"></span>
+          <span data-strength4="strength4"></span>
+        </div>
+
+      </div>
+      <button id="button" class="generator__button"><span>generate</span> <img src="./assets/images/icon-arrow-right.svg" alt="" /> </button>
+    </div>
+  </main>
+  <script src="./javascript/app.js"></script>
+</body>
+
+</html>
