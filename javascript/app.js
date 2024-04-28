@@ -1,10 +1,7 @@
 const codeOut = document.getElementById("code");
 
 const range = document.getElementById("range");
-const check1 = document.getElementById("check1");
-const check2 = document.getElementById("check2");
-const check3 = document.getElementById("check3");
-const check4 = document.getElementById("check4");
+const checkList = document.querySelector(".generator__lists");
 const strenghtValue = document.getElementById("strenght-value");
 const strength1 = document.querySelector('[data-strength1="strength1"]');
 const strength2 = document.querySelector('[data-strength2="strength2"]');
@@ -18,7 +15,6 @@ const form = document.getElementById("form");
 
 
 const values = {
-  // password: '',
   count: 10,
   check1: {
     value: false,
@@ -52,40 +48,24 @@ form.addEventListener('change', (event) => {
   values.count = event.target.value
 })
 
-check1.addEventListener('click', (e) => {
+checkList.addEventListener('click', (e) => {
+  const check = e.target.closest('input');
+  if (check) {
+  setValues(check);
+  }
 
-  if (check1.checked) {
-    values.check1.value = true;
+})
+
+const setValues = (element) => {
+  const id = element.id;
+  const checked = element.checked;
+  if (checked) {
+    values[id].value = true;
     
   } else {
-    values.check1.value = false;
+    values[id].value = false;
   }
-
-})
-check2.addEventListener('click', (e) => {
-
-  if (check2.checked) {
-    values.check2.value = true;
-  }else {
-    values.check2.value = false;
-  }
-})
-check3.addEventListener('click', (e) => {
-
-  if (check3.checked) {
-    values.check3.value = true;
-  } else {
-    values.check3.value = false;
-  }
-})
-check4.addEventListener('click', (e) => {
-
-  if (check4.checked) {
-    values.check4.value = true;
-  } else {
-    values.check4.value = false;
-  }
-})
+}
 
 const setTheme = () => {
   const valueLength = Object.values(values).filter(val => val.value).length;
